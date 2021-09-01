@@ -48,12 +48,12 @@ if ($_POST) {
 
         <tr>
             <td>Name</td>
-            <td><input type='text' name='name' class='form-control' /></td>
+            <td><input type='text' name='name' class='form-control'  required='true'/></td>
         </tr>
 
         <tr>
             <td>Price</td>
-            <td><input type='text' name='price' class='form-control' /></td>
+            <td><input type="number" step="0.01" name='price' class='form-control' required='true'/></td>
         </tr>
 
         <tr>
@@ -70,8 +70,8 @@ if ($_POST) {
                 $stmt = $category->read();
 
                 // put them in a select drop-down
-                echo "<select class='form-control' name='category_id'>";
-                echo "<option>Select category...</option>";
+                echo "<select class='form-control' name='category_id' required>";
+                echo "<option value='' disabled selected>Select category...</option>";
 
                 while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     extract($row_category);
